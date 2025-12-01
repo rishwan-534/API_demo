@@ -2,41 +2,41 @@ import pytest
 import requests
 from pytest_dependency import depends
 
-# # -----------------------------------------------------------
-# # 1. Define your Test Data
-# # Format: List of Tuples -> [(input, expected), (input, expected)]
-# # -----------------------------------------------------------
-# test_data = [
-#     (1, "Leanne Graham"),
-#     (2, "Ervin Howell"),
-#     (3, "Clementine Bauch")
-# ]
-#
-# # -----------------------------------------------------------
-# # 2. The Test Function
-# # We use the @pytest.mark.parametrize decorator.
-# # It takes two arguments:
-# #   1. A string with variable names "user_id, expected_name"
-# #   2. The list of data to inject
-# # -----------------------------------------------------------
-# @pytest.mark.parametrize("user_id, expected_name", test_data)
-# def test_verify_multiple_users(user_id, expected_name):
-#     url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
-#
-#     # Make Request
-#     response = requests.get(url)
-#     data =response.json()
-#     print(data)
-#
-#     # Assert Status
-#     assert response.status_code == 200, f"User {user_id} not found!"
-#
-#     # Assert Logic
-#     actual_name = response.json()['name']
-#     assert actual_name == expected_name, \
-#         f"Name Mismatch! Expected '{expected_name}', but got '{actual_name}'"
-#
-#
+# -----------------------------------------------------------
+# 1. Define your Test Data
+# Format: List of Tuples -> [(input, expected), (input, expected)]
+# -----------------------------------------------------------
+test_data = [
+    (1, "Leanne Graham"),
+    (2, "Ervin Howell"),
+    (3, "Clementine Bauch")
+]
+
+# -----------------------------------------------------------
+# 2. The Test Function
+# We use the @pytest.mark.parametrize decorator.
+# It takes two arguments:
+#   1. A string with variable names "user_id, expected_name"
+#   2. The list of data to inject
+# -----------------------------------------------------------
+@pytest.mark.parametrize("user_id, expected_name", test_data)
+def test_verify_multiple_users(user_id, expected_name):
+    url = f"https://jsonplaceholder.typicode.com/users/{user_id}"
+
+    # Make Request
+    response = requests.get(url)
+    data =response.json()
+    print(data)
+
+    # Assert Status
+    assert response.status_code == 200, f"User {user_id} not found!"
+
+    # Assert Logic
+    actual_name = response.json()['name']
+    assert actual_name == expected_name, \
+        f"Name Mismatch! Expected '{expected_name}', but got '{actual_name}'"
+
+
 #
 # test_data = [(7,"michael.lawson@reqres.in"),
 #              (8,"lindsay.ferguson@reqres.in"),
