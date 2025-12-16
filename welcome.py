@@ -1,0 +1,3 @@
+# welcome mgs
+
+print("hello")
